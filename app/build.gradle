@@ -9,6 +9,10 @@ android {
     namespace 'com.example.randomgroceryapp'
     compileSdk 33
 
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def appCenterSecret = properties.getProperty("APP_CENTER_SECRET")
+
     defaultConfig {
         applicationId "com.example.randomgroceryapp"
         minSdk 26
@@ -20,6 +24,8 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        resValue "string", "APP_CENTER_SECRET", "\"$appCenterSecret\""
     }
 
     buildTypes {
@@ -67,6 +73,10 @@ dependencies {
     implementation 'androidx.hilt:hilt-navigation-compose:1.1.0-alpha01'
     kapt 'com.google.dagger:hilt-android-compiler:2.45'
     implementation "com.github.bumptech.glide:compose:1.0.0-alpha.1"
+
+    def appCenterSdkVersion = '4.4.5'
+    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
