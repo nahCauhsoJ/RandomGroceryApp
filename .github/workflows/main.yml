@@ -8,4 +8,4 @@ jobs:
       - name: Use APP_CENTER_SECRET
         env:
           APP_CENTER_SECRET: ${{ secrets.APP_CENTER_SECRET }}
-        run: echo APP_CENTER_SECRET=\"$APP_CENTER_SECRET\" > local.properties
+        run: echo APP_CENTER_SECRET=\"$APP_CENTER_SECRET\"
