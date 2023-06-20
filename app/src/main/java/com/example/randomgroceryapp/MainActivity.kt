@@ -25,6 +25,9 @@ class MainActivity : ComponentActivity() {
             Analytics::class.java, Crashes::class.java
         )
 
+        println(getString(R.string.APP_CENTER_SECRET))
+        println("Yo")
+
         setContent {
             RandomGroceryAppTheme {
                 MainPage()

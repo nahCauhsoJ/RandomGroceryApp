@@ -10,8 +10,10 @@ android {
     compileSdk 33
 
     Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def localPropertyFile = project.rootProject.file('local.properties')
+    if (localPropertyFile.exists()) properties.load(localPropertyFile.newDataInputStream())
     def appCenterSecret = properties.getProperty("APP_CENTER_SECRET")
+    if (appCenterSecret == null) appCenterSecret = System.env.APP_CENTER_SECRET
 
     defaultConfig {
         applicationId "com.example.randomgroceryapp"
