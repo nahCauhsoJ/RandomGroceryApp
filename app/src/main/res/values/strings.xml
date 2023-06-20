@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Random Grocery App</string>
+    <string name="navigation_home">Home</string>
+    <string name="navigation_shop">Shop</string>
+    <string name="navigation_checkout">Checkout</string>
+    <string name="navigation_settings">Settings</string>
+</resources>
