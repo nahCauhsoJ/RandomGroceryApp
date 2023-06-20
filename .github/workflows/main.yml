@@ -1,0 +1,11 @@
+name: Main
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use APP_CENTER_SECRET
+        env:
+          APP_CENTER_SECRET: ${{ secrets.APP_CENTER_SECRET }}
+        run: echo APP_CENTER_SECRET=\"$APP_CENTER_SECRET\" > local.properties
